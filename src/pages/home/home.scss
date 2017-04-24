@@ -1,0 +1,71 @@
+#ldjam page-home {
+	ion-content {
+		background: radial-gradient(ellipse at right, #384971 0%, #33354a 100%);
+
+		.wrapper {
+			bottom: 25%;
+			left: 33%;
+			margin: auto;
+			position: absolute;
+			right: 33%;
+			top: 25%;
+			z-index: 100;
+		}
+
+		img {
+			margin-bottom: 45px;
+		}
+
+		button {
+			border: 2px solid rgba(255, 255, 255, 0.25);
+			clear: both;
+			color: #ffffff;
+			float: left;
+			margin: 10px 0;
+			width: 100%;
+		}
+
+		.ldtag {
+			clear: both;
+			color: rgba(172, 181, 210, 0.35);
+			float: left;
+			margin-top: 50px;
+			text-align: center;
+			text-transform: uppercase;
+			width: 100%;
+		}
+
+		.sun {
+			background: #f2d7ae;
+			box-shadow: 0 0 10px 1px rgba(242, 215, 174, 0.58), 0 0 1000px 10px rgba(224, 118, 77, 0.5), 0 0 30px 10px rgba(241, 213, 137, 0.37);
+			border-radius: 100%;
+			height: 100px;
+			left: 20%;
+			position: absolute;
+			top: 5%;
+			width: 100px;
+		}
+
+		.planet {
+			background: linear-gradient(180deg, #364162, #33364c);
+			border-radius: 100%;
+			bottom: 20%;
+			box-shadow: 0 0 75px #33364c;
+			height: 300px;
+			right: -10%;
+			position: absolute;
+			width: 300px;
+		}
+
+		.moon {
+			background: linear-gradient(180deg, #33364c, #272938);
+			border-radius: 100%;
+			bottom: 20%;
+			display: none;
+			height: 70px;
+			right: 20%;
+			position: absolute;
+			width: 70px;
+		}
+	}
+}

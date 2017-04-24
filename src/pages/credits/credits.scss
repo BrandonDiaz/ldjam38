@@ -1,0 +1,31 @@
+#ldjam page-credits {
+	ion-content {
+		background: #1d191d;
+		color: rgba(255, 255, 255, 0.3);
+	}
+
+	h1 {
+		color: rgba(255, 255, 255, 0.5);
+		font-weight: normal;
+		margin: 25% 0 25px 0;
+		text-align: center;
+		top: 120px;
+	}
+
+	p {
+		line-height: 20px;
+		margin-bottom: 25px;
+		padding: 0 30%;
+		text-align: center;
+	}
+
+	button {
+		background: none;
+		border: 2px solid rgba(255, 255, 255, 0.25);
+		clear: both;
+		color: #ffffff;
+		float: left;
+		margin: 10px 30%;
+		width: calc(50% - 100px);
+	}
+}

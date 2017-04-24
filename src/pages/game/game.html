@@ -1,0 +1,94 @@
+<ion-content>
+	<div [ngClass]="{glitchy : (gameService.state.cpu >= 100 || gameService.state.ram <= 0)}">
+		<div [hidden]="!gameService.state.paused" class="paused">
+			<span>Input Disabled</span>
+		</div>
+		<div class="status">
+			<span class="cpu">{{gameService.state.cpu}}<b>CPU</b></span>
+			<div class="ram">
+				<b [ngStyle]="{width : gameService.state.ram + '%'}"></b>
+			</div>
+		</div>
+		<div class="dialog {{dialogService.dialog_buffer ? 'speaking' : 'muted'}}">
+			<div class="speaker">
+				<ion-icon name="{{dialogService.dialog_buffer ? 'ios-mic-outline' : 'ios-mic-off-outline'}}"></ion-icon>
+				{{gameService.ai_name}}
+			</div>
+			<div class="subtitles">{{dialogService.dialog_buffer}}</div>
+		</div>
+		<div [ngClass]="{ship : true, blurred : pod}">
+			<ul class="pods">
+				<li class="pod {{pod.dead ? 'dead' : 'alive'}}" *ngFor="let pod of gameService.state.pods" (click)="enterPod(pod)">
+					<span class="nameplate">{{pod.name}}</span>
+					<span [hidden]="pod.health > 15" class="warning"></span>
+					<span class="indicator">
+						<b [ngStyle]="{height : pod.health + '%'}"></b>
+					</span>
+				</li>
+			</ul>
+		</div>
+		<div [hidden]="!pod" class="dream {{pod && pod.active ? 'active' : 'inactive'}}">
+		<div *ngIf="pod">
+			<div class="status_pod">
+				<div class="excitement" title="Excitement">
+					<b [ngStyle]="{width : pod.needs.excitement + '%'}"></b>
+				</div>
+				<div class="interaction" title="Interaction">
+					<b [ngStyle]="{width : pod.needs.interaction + '%'}"></b>
+				</div>
+				<div class="immersion" title="Immersion">
+					<b [ngStyle]="{width : pod.needs.immersion + '%'}"></b>
+				</div>
+			</div>
+			<span class="name">{{pod.name}}, age {{pod.age}}</span>
+			<button ion-button outline class="exit" (click)="exitPod()">Exit</button>
+			<div class="grid">
+				<div class="entities">
+					<span *ngFor="let construct of pod.dream.constructs" [ngStyle]="{background: 'url(../assets/img/entity_construct_' + construct.type + '.png) top center no-repeat'}" class="entity construct type_{{construct.type}} pos_x_{{construct.x}} pos_y_{{construct.y}}"></span>
+					<span *ngFor="let agent of pod.dream.agents" [ngStyle]="{background: 'url(../assets/img/entity_agent_' + agent.type + '.png) top center no-repeat'}" class="entity agent type_{{agent.type}} pos_x_{{agent.x}} pos_y_{{agent.y}}">
+						<div *ngIf="agent.lifetime" class="lifetime">
+							<b [ngStyle]="{width : agent.lifetime + '%'}"></b>
+						</div>
+					</span>
+				</div>
+				<div class="map">
+					<ul *ngFor="let y of map_buffer">
+						<li class="tile" *ngFor="let x of map_buffer" [ngStyle]="{backgroundImage : getTileQRCode(x - 1, y - 1)}" (click)="interactWithTile(x - 1, y - 1)"></li>
+					</ul>
+				</div>
+			</div>
+			<div class="toolbox">
+				<div class="stat_header">
+					<div class="stat title">Name</div>
+					<div class="stat cpu">CPU</div>
+					<div class="stat ram">RAM</div>
+					<div class="stat excitement">EXC</div>
+					<div class="stat interaction">INT</div>
+					<div class="stat immersion">IMM</div>
+					<div class="stat lifetime">Duration</div>
+				</div>
+				<ul>
+					<li *ngFor="let tool of gameService.toolbox.agents" (click)="selectTool(tool)" [ngClass]="{selected : tool.type == tool_buffer.type}">
+						<div class="stat title">{{tool.name}}</div>
+						<div class="stat cpu">-{{tool.cost.cpu}}</div>
+						<div class="stat ram">-{{tool.cost.ram}}</div>
+						<div class="stat excitement">+{{tool.needs.excitement}}</div>
+						<div class="stat interaction">+{{tool.needs.interaction}}</div>
+						<div class="stat immersion">+{{tool.needs.immersion}}</div>
+						<div class="stat lifetime">{{tool.lifetime}}</div>
+					</li>
+					<li *ngFor="let tool of gameService.toolbox.constructs" (click)="selectTool(tool)" [ngClass]="{selected : tool.type == tool_buffer.type}">
+						<div class="stat title">{{tool.name}}</div>
+						<div class="stat cpu">-{{tool.cost.cpu}}</div>
+						<div class="stat ram">-{{tool.cost.ram}}</div>
+						<div class="stat excitement">+{{tool.needs.excitement}}</div>
+						<div class="stat interaction">+{{tool.needs.interaction}}</div>
+						<div class="stat immersion">+{{tool.needs.immersion}}</div>
+						<div class="stat lifetime">N/A</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	</div>
+</ion-content>

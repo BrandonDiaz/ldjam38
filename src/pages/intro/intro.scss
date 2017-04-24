@@ -1,0 +1,39 @@
+#ldjam page-intro {
+	ion-content {
+		background: #1d191d;
+		color: rgba(255, 255, 255, 0.3);
+	}
+
+	h1 {
+		bottom: 0;
+		font-weight: normal;
+		left: 0;
+		margin: auto;
+		position: absolute;
+		right: 0;
+		text-align: center;
+		top: 45%;
+	}
+
+	.legal {
+		bottom: 25px;
+		color: #ffffff;
+		left: 0;
+		margin: auto;
+		opacity: 0.5;
+		position: absolute;
+		right: 0;
+		text-align: center;
+
+		.logo {
+			display: block;
+			filter: grayscale(100%);
+			padding-bottom: 25px;
+		}
+
+		a {
+			color: #c9ae50;
+			text-decoration: none;
+		}
+	}
+}
