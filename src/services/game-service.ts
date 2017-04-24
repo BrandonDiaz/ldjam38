@@ -102,10 +102,6 @@ export class GameService {
 				pod.dead = true;
 				self.state.deaths++;
 
-				if (self.state.deaths == 5) {
-
-				}
-
 				return pod;
 			}
 

@@ -15,7 +15,7 @@ export class HomePage {
 	constructor(public navCtrl : NavController, public stateService : StateService) {
 		this.audio = new Audio();
 
-		this.audio.src = '../assets/music/synth_2.mp3';
+		this.audio.src = 'assets/music/synth_2.mp3';
 		this.audio.loop = true;
 		this.audio.playbackRate = 0.1;
 		this.audio.volume = 0.2;

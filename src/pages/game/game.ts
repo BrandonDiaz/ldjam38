@@ -40,7 +40,7 @@ export class GamePage {
 
 		this.audio = new Audio();
 
-		this.audio.src = '../assets/music/synth_1.mp3';
+		this.audio.src = 'assets/music/synth_1.mp3';
 		this.audio.loop = true;
 		this.audio.playbackRate = 0.1;
 		this.audio.volume = 0.01;
