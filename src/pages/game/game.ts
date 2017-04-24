@@ -183,7 +183,7 @@ export class GamePage {
 		let contents = this.gameService.getTileContents(this.pod, x, y);
 
 		if (contents.construct) {
-			background = 'url(../assets/img/qr_construct_' + contents.construct.type  + '.png)';
+			background = 'url(assets/img/qr_construct_' + contents.construct.type  + '.png)';
 		}
 
 		return background;

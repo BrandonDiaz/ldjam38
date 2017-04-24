@@ -44,8 +44,8 @@
 			<button ion-button outline class="exit" (click)="exitPod()">Exit</button>
 			<div class="grid">
 				<div class="entities">
-					<span *ngFor="let construct of pod.dream.constructs" [ngStyle]="{background: 'url(../assets/img/entity_construct_' + construct.type + '.png) top center no-repeat'}" class="entity construct type_{{construct.type}} pos_x_{{construct.x}} pos_y_{{construct.y}}"></span>
-					<span *ngFor="let agent of pod.dream.agents" [ngStyle]="{background: 'url(../assets/img/entity_agent_' + agent.type + '.png) top center no-repeat'}" class="entity agent type_{{agent.type}} pos_x_{{agent.x}} pos_y_{{agent.y}}">
+					<span *ngFor="let construct of pod.dream.constructs" [ngStyle]="{background: 'url(assets/img/entity_construct_' + construct.type + '.png) top center no-repeat'}" class="entity construct type_{{construct.type}} pos_x_{{construct.x}} pos_y_{{construct.y}}"></span>
+					<span *ngFor="let agent of pod.dream.agents" [ngStyle]="{background: 'url(assets/img/entity_agent_' + agent.type + '.png) top center no-repeat'}" class="entity agent type_{{agent.type}} pos_x_{{agent.x}} pos_y_{{agent.y}}">
 						<div *ngIf="agent.lifetime" class="lifetime">
 							<b [ngStyle]="{width : agent.lifetime + '%'}"></b>
 						</div>
